@@ -150,6 +150,8 @@ td .remove {
     border: none;
 
     color: red;
+
+    cursor: pointer;
 }
 
 
