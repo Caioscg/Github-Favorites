@@ -1,3 +1,5 @@
+// classe que vai conter a lógica dos dados
+// como os dados serão estruturados
 export class Favorites {
     constructor(root) {
         this.root = document.querySelector(root) // this.root é o #app
@@ -5,30 +7,19 @@ export class Favorites {
     }
 
     load() {
-        this.entries = [
-            {
-                login: "maykbrito",
-                name: "Mayk Brito",
-                public_repos: '76',
-                followers: '14000'
-            },
-            {
-                login: "caioscg",
-                name: "Caio Gonzaga",
-                public_repos: '41',
-                followers: '10'
-            }
-        ]
-
+        this.entries = JSON.parse(localStorage.getItem('@github-favorites:')) || []
     }
 
     delete(user) {
-        const filteredEntries = this.entries.filter(entry => {
-            console.log(entry)
-        })
+        const filteredEntries = this.entries.filter(entry => entry.login !== user.login) // se retornar false, o filter exclui o user passado
+                                                                                        // o user que for igual ao passado é deletado
+
+        this.entries = filteredEntries
+        this.update()
     }
 }
 
+// classe que vai criar a visualização e eventos do HTML
 export class FavoritesView extends Favorites {
     constructor(root) {
         super(root)
@@ -54,7 +45,7 @@ export class FavoritesView extends Favorites {
             row.querySelector('.remove').onclick = () => {
                 const isOk = confirm('Tem certeza que deseja deletar essa linha?') // alert
                 if (isOk) {
-                    
+                   this.delete(user) 
                 }
             }
 
