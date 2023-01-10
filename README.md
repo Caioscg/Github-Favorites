@@ -1,7 +1,7 @@
 <h1 align="center">GitHub Favorites</h1>
 
 <p align="center">
-A basic development of a find and save GitHub users!
+A basic development to find and save GitHub users!
 </p>
 
 <p align="center">
