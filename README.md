@@ -32,7 +32,7 @@ This project was developed with the following technologies:
 
 ## 💻 Project
 
-- With this project you can save your favorites GitHub accounts!
+- With this project you can save your favorite GitHub accounts!
 
 ## 🌐 Site
 
